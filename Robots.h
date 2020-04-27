@@ -6,10 +6,6 @@
 
 class Robots{
 	private:
-		int Servo1posicionI[100][100]={{13,42,74},{13,42,74},{13,42,74},{0,28,56},{0,28,56},{94,112,135},{94,112,135},{94,112,135},{101,101,101}}; //angulos iniciales
-		int Servo2posicionI[100][100]={{98,2,3},{4,5,6},{7,8,9},{10,11,12},{13,14,15},{16,17,18},{19,20,21},{22,23,24},{25,26,27}}; //angulos iniciales
-		int Servo3posicionI[100][100]={{99,2,3},{4,5,6},{7,8,9},{10,11,12},{13,14,15},{16,17,18},{19,20,21},{22,23,24},{25,26,27}}; //angulos iniciales
-		int Servo4posicionI[100][100]={{50,50,50},{50,50,50},{15,15,15},{15,15,15},{15,15,15},{15,15,15},{15,15,15},{50,50,50},{21,21,21}}; //angulos iniciales
 		Restaurar PosicionesServo1;  //objetos (posiciones) de clase Restaurar que me permiten guardar 9 posiciones del ServoX para 3 tipos de cajas
 		Restaurar PosicionesServo2;  // Las cajas ya tendrán posiciones constantes en la maqueta, por lo cual los servos tendrían que tener posiciones
 		Restaurar PosicionesServo3;  //constantes (posiciones de algoritmo para guardar cajas), pero en la realidad es que los servos nunca mantienen 
@@ -64,8 +60,12 @@ class Robots{
 		int get_CantidadCajasRojas();     // pido la información de la cantidad de dichas cajas
 		int get_CantidadCajasAmarillas();
 };
-Robots::Robots(){                                              //constructor que inicializa mis objetos de tipo Robots con
-	PosicionesServo1.set_posicionCompleto(Servo1posicionI);    // valores por defaut, estos se irán modificando
+Robots::Robots(){                                              //constructor que inicializa mis objetos de tipo Robots con ...
+	int Servo1posicionI[100][100]={{13,42,74},{13,42,74},{13,42,74},{0,28,56},{0,28,56},{94,112,135},{94,112,135},{94,112,135},{101,101,101}}; //angulos iniciales
+	int Servo2posicionI[100][100]={{98,2,3},{4,5,6},{7,8,9},{10,11,12},{13,14,15},{16,17,18},{19,20,21},{22,23,24},{25,26,27}}; //angulos iniciales
+	int Servo3posicionI[100][100]={{99,2,3},{4,5,6},{7,8,9},{10,11,12},{13,14,15},{16,17,18},{19,20,21},{22,23,24},{25,26,27}}; //angulos iniciales
+	int Servo4posicionI[100][100]={{50,50,50},{50,50,50},{15,15,15},{15,15,15},{15,15,15},{15,15,15},{15,15,15},{50,50,50},{21,21,21}}; //angulos iniciales
+	PosicionesServo1.set_posicionCompleto(Servo1posicionI);    // ... valores por defaut, estos se irán modificando
 	PosicionesServo2.set_posicionCompleto(Servo2posicionI);    // con los setters
 	PosicionesServo3.set_posicionCompleto(Servo3posicionI);
 	PosicionesServo4.set_posicionCompleto(Servo4posicionI);
@@ -73,6 +73,8 @@ Robots::Robots(){                                              //constructor que
 	servo2.set_angulo(70);
 	servo3.set_angulo(75);
 	servo4.set_angulo(21);
+	// en los setters hago mi agregación de dichas cajas
+	
 }
 
 void Robots::set_particular_PosicionesServo2(int pose1,int pose2,int pose3,int pose4){   //contenido de mis metodos anteriormente mencionados
